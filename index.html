@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percorso Valle di Brata</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center; 
+        }
+
+        /* STILI LOGHI */
+        .logo-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .logo-container img {
+            max-height: 50px; 
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-meraki {
+            max-height: 60px !important; 
+        }
+        
+        /* TESTI PRINCIPALI */
+        h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        /* SOTTOTITOLO VUOTO */
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+            line-height: 1.4;
+            height: 0;
+            margin-bottom: 0;
+        }
+        
+        .route-info {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: left; 
+        }
+        
+        .route-info h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .info-item:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .info-value {
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .waypoints {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .waypoints h3 {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .waypoint {
+            font-size: 13px;
+            color: #555;
+            padding: 5px 0;
+        }
+        
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px; 
+        }
+        
+        .btn {
+            padding: 18px 30px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn-maps {
+            background: #4285F4;
+            color: white;
+        }
+        
+        .btn-maps:hover {
+            background: #3367d6;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(66, 133, 244, 0.4);
+        }
+        
+        .btn-download {
+            background: #f5f5f5;
+            color: #333;
+            border: 2px solid #ddd;
+        }
+        
+        .btn-download:hover {
+            background: #e8e8e8;
+            border-color: #ccc;
+        }
+        
+        .icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* STILE PER IL TESTO IN CALCE CON A CAPO */
+        .footer-text {
+            font-size: 11px;
+            color: #888;
+            line-height: 1.5;
+            padding: 0 10px;
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .waypoint {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="logo-container">
+            <img src="logo_meraki-desideri culturali (2).png" alt="Logo Meraki Desideri Culturali" class="logo-meraki">
+            <img src="illo.png" alt="Logo stilizzato illustrativo" class="logo-illo">
+        </div>
+        
+        <h1>Percorso Valle di Brata</h1>
+        <p class="subtitle"></p>
+        
+        <div class="route-info">
+            <h2>Informazioni Percorso</h2>
+            <div class="info-item">
+                <span class="info-label">Distanza</span>
+                <span class="info-value">6.2 km</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Dislivello</span>
+                <span class="info-value">+625 m</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Punti tracciato</span>
+                <span class="info-value">583</span>
+            </div>
+            
+            <div class="waypoints">
+                <h3>📍 Punti d'interesse</h3>
+                <div class="waypoint">🏠 Casa degli Amici della Natura</div>
+                <div class="waypoint">🏕️ Capanna Sudatoria - Area PicNic</div>
+                <div class="waypoint">🌲 Funghi</div>
+                <div class="waypoint">⛰️ Roccia Casél</div>
+                <div class="waypoint">🏚️ Fienile distrutto da Vaia</div>
+                <div class="waypoint">⛰️ Roccia del Parto</div>
+                <div class="waypoint">💧 Sorgente dell'Orso</div>
+                <div class="waypoint">💧 Pozze di Brata</div>
+                <div class="waypoint">🏔️ Riparo sotto Roccia</div>
+            </div>
+        </div>
+        
+        <div class="buttons">
+            
+            <a href="https://www.google.com/maps/d/u/5/edit?mid=1KEWoPxCcGFTKc6agpgBiRgv-sc-STpU&usp=sharing" class="btn btn-maps" id="mapsBtn" target="_blank">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                Apri su Google My Maps
+            </a>
+            
+            <button class="btn btn-download" id="downloadBtn">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                </svg>
+                Scarica file GPX
+            </button>
+        </div>
+
+        <p class="footer-text">
+            nell'ambito del progetto Nuove trame e Saperi in Val Saviore <br>
+            di Meraki desideri culturali, <br>
+            con il contributo dell'Avviso Unico Cultura di Regione Lombardia
+        </p>
+    </div>
+
+    <script>
+        // Waypoints campionati dal percorso Valle di Brata (mantenuti per il download GPX)
+        const waypoints = [
+            {lat: 46.081263, lon: 10.404049, ele: 1275.71},
+            {lat: 46.082700, lon: 10.406130, ele: 1279.72},
+            {lat: 46.083397, lon: 10.410177, ele: 1271.39},
+            {lat: 46.084468, lon: 10.414690, ele: 1271.85},
+            {lat: 46.085637, lon: 10.418768, ele: 1269.04},
+            {lat: 46.086627, lon: 10.419446, ele: 1274.57},
+            {lat: 46.087809, lon: 10.421601, ele: 1284.99},
+            {lat: 46.089298, lon: 10.424538, ele: 1291.12},
+            {lat: 46.090838, lon: 10.429448, ele: 1296.27},
+            {lat: 46.091148, lon: 10.430652, ele: 1300.95},
+            {lat: 46.091513, lon: 10.432364, ele: 1313.32},
+            {lat: 46.092638, lon: 10.432930, ele: 1332.30},
+            {lat: 46.092126, lon: 10.433469, ele: 1327.97},
+            {lat: 46.091199, lon: 10.432677, ele: 1300.60},
+            {lat: 46.090419, lon: 10.430827, ele: 1279.48},
+            {lat: 46.089186, lon: 10.429137, ele: 1252.71},
+            {lat: 46.088127, lon: 10.428256, ele: 1230.83},
+            {lat: 46.086632, lon: 10.426818, ele: 1206.43},
+            {lat: 46.085371, lon: 10.424568, ele: 1170.77},
+            {lat: 46.084410, lon: 10.420756, ele: 1174.86},
+            {lat: 46.083725, lon: 10.419438, ele: 1183.04},
+            {lat: 46.082546, lon: 10.411832, ele: 1187.17},
+            {lat: 46.082145, lon: 10.409098, ele: 1201.37},
+            {lat: 46.081103, lon: 10.404104, ele: 1217.90}
+        ];
+
+        // Download GPX
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            const gpxContent = `<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Valle di Brata" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Valle di Brata</name>
+  </metadata>
+  <wpt lat="46.091199" lon="10.432677"><name>Sorgente dell'Orso</name></wpt>
+  <wpt lat="46.092126" lon="10.433473"><name>Pozze di Brata</name></wpt>
+  <wpt lat="46.092638" lon="10.432933"><name>Riparo sotto Roccia</name></wpt>
+  <wpt lat="46.091028" lon="10.431361"><name>Roccia del Parto</name></wpt>
+  <wpt lat="46.086722" lon="10.419139"><name>Fienile distrutto da Vaia</name></wpt>
+  <wpt lat="46.087861" lon="10.421778"><name>Funghi</name></wpt>
+  <wpt lat="46.088278" lon="10.422583"><name>Roccia Casél</name></wpt>
+  <wpt lat="46.086499" lon="10.426801"><name>Capanna Sudatoria</name></wpt>
+  <wpt lat="46.081129" lon="10.404071"><name>Casa degli Amici della Natura</name></wpt>
+  <trk>
+    <name>Valle di Brata</name>
+    <trkseg>
+${waypoints.map(p => `      <trkpt lat="${p.lat}" lon="${p.lon}"><ele>${p.ele}</ele></trkpt>`).join('\n')}
+    </trkseg>
+  </trk>
+</gpx>`;
+            
+            const blob = new Blob([gpxContent], { type: 'application/gpx+xml' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'valle_di_brata.gpx';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        });
+
+        // Animazione click
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
