@@ -233,7 +233,7 @@
         
         <div class="buttons">
             
-            <a href="#" class="btn btn-maps" id="mapsBtn" target="_blank">
+            <a href="https://www.google.com/maps/d/u/4/embed?mid=1KEWoPxCcGFTKc6agpgBiRgv-sc-STpU&ehbc=2E312F" class="btn btn-maps" id="mapsBtn" target="_blank">
                 <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                 </svg>
@@ -255,7 +255,7 @@
     </div>
 
     <script>
-        // Contenuto GPX aggiornato dal file caricato dall'utente
+        // Contenuto GPX fornito dall'utente, che include solo il tracciato.
         const gpxTrkOnlyContent = `<?xml version='1.0' encoding='UTF-8'?>
 <gpx version="1.1" creator="https://www.komoot.de" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
   <metadata>
@@ -286,47 +286,19 @@
   </trk>
 </gpx>`;
             
-        // Funzione per estrarre i punti del tracciato (necessaria per non avere errori nel codice, anche se non usata per My Maps)
-        function extractPointsForMaps(gpxContent) {
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(gpxContent, "application/xml");
-            const trkpts = xmlDoc.getElementsByTagName("trkpt");
-            const points = [];
-            for (let i = 0; i < trkpts.length; i++) {
-                points.push({
-                    lat: trkpts[i].getAttribute('lat'),
-                    lon: trkpts[i].getAttribute('lon')
-                });
-            }
-            return points;
-        }
-        
-        const waypoints = extractPointsForMaps(gpxTrkOnlyContent); 
-
         // Download GPX
         document.getElementById('downloadBtn').addEventListener('click', function() {
             const blob = new Blob([gpxTrkOnlyContent], { type: 'application/gpx+xml' });
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            // Nome del file da scaricare aggiornato
+            // Nome del file per il download del solo tracciato, come specificato nel codice originale
             a.download = '2025-11-01_2663538153_Valle_di_Brata_-_Valle_della_consapevolezza.gpx'; 
             document.body.appendChild(a);
             a.click();
             window.URL.revokeObjectURL(url);
             document.body.removeChild(a);
         });
-
-        // Funzione per generare il link Google Maps (My Maps)
-        function createGoogleMapsUrl() {
-            // Link My Maps corretto
-            const realMyMapsUrl = "https://www.google.com/maps/d/u/4/embed?mid=1KEWoPxCcGFTKc6agpgBiRgv-sc-STpU&ehbc=2E312F"; 
-            
-            return realMyMapsUrl;
-        }
-
-        // Configura il link Google Maps
-        document.getElementById('mapsBtn').href = createGoogleMapsUrl();
 
         // Animazione click
         document.querySelectorAll('.btn').forEach(btn => {
