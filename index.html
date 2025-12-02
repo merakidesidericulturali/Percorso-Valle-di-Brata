@@ -217,11 +217,6 @@
                 <span class="info-label">Dislivello</span>
                 <span class="info-value">+150 m</span>
             </div>
-            <div class="info-item">
-                <span class="info-label">Punti tracciato</span>
-                <span class="info-value">583</span>
-            </div>
-            
             <div class="waypoints">
                 <h3>📍 Punti d'interesse</h3>
                 <div class="waypoint">🏠 Casa degli Amici della Natura - Saviore</div>
@@ -254,23 +249,32 @@
         </div>
 
         <p class="footer-text">
-            nell'ambito del progetto Nuove trame e Saperi in Val Saviore <br>
-            di Meraki desideri culturali, <br>
-            con il contributo dell'Avviso Unico Cultura di Regione Lombardia
+            nell'ambito del progetto Nuove trame femminili in Val Saviore di Meraki desideri culturali, <br>
+            con il contributo di Regione Lombardia – Avviso Unico 2025, Ambito Patrimonio Culturale Immateriale
         </p>
     </div>
 
     <script>
-        // Contenuto GPX fornito dall'utente.
+        // Contenuto GPX aggiornato dal file caricato dall'utente
         const gpxTrkOnlyContent = `<?xml version='1.0' encoding='UTF-8'?>
-<gpx version="1.1" creator="Valle di Brata" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+<gpx version="1.1" creator="https://www.komoot.de" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
   <metadata>
-    <name>Valle di Brata - Tracciato</name>
+    <name>Valle di Brata - Valle della consapevolezza</name>
+    <author>
+      <link href="https://www.komoot.de">
+        <text>komoot</text>
+        <type>text/html</type>
+      </link>
+    </author>
   </metadata>
   <trk>
     <name>Valle di Brata - Valle della consapevolezza</name>
     <trkseg>
       <trkpt lat="46.081263" lon="10.404049">
+        <ele>1275.708876</ele>
+        <time>2025-11-01T13:37:01.157Z</time>
+      </trkpt>
+      <trkpt lat="46.081351" lon="10.404071">
         <ele>1275.708876</ele>
         <time>2025-11-01T13:37:01.157Z</time>
       </trkpt>
@@ -282,7 +286,7 @@
   </trk>
 </gpx>`;
             
-        // Funzione per estrarre i punti del tracciato (non usata per il link My Maps, ma necessaria per la struttura)
+        // Funzione per estrarre i punti del tracciato (necessaria per non avere errori nel codice, anche se non usata per My Maps)
         function extractPointsForMaps(gpxContent) {
             const parser = new DOMParser();
             const xmlDoc = parser.parseFromString(gpxContent, "application/xml");
@@ -305,7 +309,8 @@
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'valle_di_brata_tracciato_pulito.gpx'; 
+            // Nome del file da scaricare aggiornato
+            a.download = '2025-11-01_2663538153_Valle_di_Brata_-_Valle_della_consapevolezza.gpx'; 
             document.body.appendChild(a);
             a.click();
             window.URL.revokeObjectURL(url);
@@ -314,7 +319,7 @@
 
         // Funzione per generare il link Google Maps (My Maps)
         function createGoogleMapsUrl() {
-            // ✅ LINK CORRETTO INSERITO: Questo risolverà l'errore sul cellulare.
+            // Link My Maps corretto
             const realMyMapsUrl = "https://www.google.com/maps/d/u/4/embed?mid=1KEWoPxCcGFTKc6agpgBiRgv-sc-STpU&ehbc=2E312F"; 
             
             return realMyMapsUrl;
